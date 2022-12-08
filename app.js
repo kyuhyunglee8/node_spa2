@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
-const authRoute = require("./routes/auth");
-const postRoute = require("./routes/posts");
-const commentRoute = require("./routes/comments");
+const apiRoute = require("./routes");
 const { sequelize } = require("./models");
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
@@ -26,11 +24,8 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 // app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
-app.use('/api/auth', authRoute);
-// app.use('/api/post', postRoute);
-// app.use('/api/comment', commentRoute);
+app.use('/api', apiRoute);
 
-// connect(); // mongoose connection
 app.listen(port, () => {
   console.log(port, 'server start');
 });
