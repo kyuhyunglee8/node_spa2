@@ -4,7 +4,7 @@ const { User } = require('../models')
 const jwt = require("jsonwebtoken");
 
 //회원가입
-router.post("/signUp", async (req, res) => {
+router.post("/signup", async (req, res) => {
   const { email, nickname, password, confirmPassword } = req.body;
 
   //닉네임은 `최소 3자 이상, 알파벳 대소문자(a~z, A~Z), 숫자(0~9)`로 구성
